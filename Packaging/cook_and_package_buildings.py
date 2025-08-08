@@ -10,7 +10,7 @@ parser.add_argument("--project-root", required=True, help="Full path to the Unre
 parser.add_argument("--uproject", required=True, help="Name of the .uproject file (with or without .uproject extension).")
 args = parser.parse_args()
 
-UE_ROOT = r"C:\Program Files\Epic Games\UE_5.3"  # Path to your Unreal Engine installation
+UE_ROOT = r"C:\Program Files\Epic Games\UE_5.5"  # Path to your Unreal Engine installation
 UAT_PATH = os.path.join(UE_ROOT, r"Engine\Build\BatchFiles\RunUAT.bat")
 UNREALPAK_PATH_WINDOWS = os.path.join(UE_ROOT, r"Engine\Binaries\Win64\UnrealPak.exe")
 
