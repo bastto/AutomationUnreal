@@ -38,30 +38,14 @@ def cook_building(building_id):
 #\Engine\Binaries\Win64\UnrealEditor-Win64-DebugGame-Cmd.exe" -platform=Win64 -installed -skipstage" -nocompile -nocompileuat ]
     cmd = [
         UAT_PATH,
-        f'-ScriptsForProject="{UPROJECT_PATH}"',
-        "Turnkey", "-command=VerifySdk", "-platform=Win64", "-UpdateIfNeeded",
-        # the EditorIO bits are optional outside of the editor UI; safe to drop:
-        # "-EditorIO", "-EditorIOPort=50038",
-
-        f'-project="{UPROJECT_PATH}"',
         "BuildCookRun",
-        "-nop4",
-        "-utf8output",
-        "-nocompileeditor",
-        "-skipbuildeditor",
-        "-cook",
-        f'-project="{UPROJECT_PATH}"',
-        f'-target="{UPROJECT_NAME_CLEAN}"',
-        f'-unrealexe="{UNREAL_CMD}"',
-        "-platform=Win64",
-        "-installed",
+        f"-project={UPROJECT_PATH}",
+        "-noP4",
+        "-targetplatform=Win64",
+        f"-cookdir={asset_dir}",
         "-skipstage",
-        # your scoping:
-        f'-cookdir="{asset_dir}"',
-        "-iterate",
         "-compressed",
-        "-unversioned",
-        "-unattended",
+        "-unversioned"
     ]
 
     print("UAT CMD:", " ".join(cmd))
